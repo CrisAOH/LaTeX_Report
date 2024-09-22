@@ -1,0 +1,18 @@
+%Referencias renombrado
+\renewcommand{\bibname}{Bibliografía}
+
+%Configurando parskip
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{5mm}
+
+%Configurando el espaciado entre "itemize/enumerate items"
+\setlist[itemize]{noitemsep, topsep=3mm}
+\setlist[enumerate]{noitemsep, topsep=3mm}
+
+%Espacios entre autores en "Bibliografía"
+\let\OLDthebibliography\thebibliography
+\renewcommand\thebibliography[1]{
+    \OLDthebibliography{#1}
+    \setlength{\parskip}{3mm}
+    \setlength{\itemsep}{3mm plus 0.3ex}
+}

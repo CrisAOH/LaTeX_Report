@@ -1,0 +1,26 @@
+\ProvidesPackage{./docstyle}
+
+\newcommand\nombreUniversidad{Tecnológico Nacional de México en Celaya}
+\newcommand\nombreProyecto{(Nombre del proyecto)}
+\newcommand\fechaInicioResidencia{(Fecha de incio)}
+\newcommand\fechaFinResidencia{(Fecha de fin)}
+\newcommand\nombreEmpresa{IBT Innova Business Technology}
+\newcommand\nombreAutor{Cristhian Alberto Ortega Hernández}
+\newcommand\numeroControl{20030191}
+\newcommand\especialidad{Ingeniería en Sistemas Computacionales}
+\newcommand\nombreAsesorExterno{Jorge Octavio Luna Medrano}
+\newcommand\nombreAsesorInterno{Claudio Mayela Alcaraz Avendaño}
+\newcommand\fechaPresentacion{Celaya Guanajuato, a 13 de enero de 2025}
+
+%Configuraciones necesarias
+\renewcommand{\familydefault}{\sfdefault}
+\setlength\bibitemsep{3\itemsep}
+\setlength{\parindent}{0cm}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{
+    \scriptsize\textbf{\nombreProyecto}\\
+    \nombreAutor
+}
+\cfoot{\thepage}

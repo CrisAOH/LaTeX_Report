@@ -1,0 +1,16 @@
+\documentclass[11pt, letterpaper]{report}
+
+%PAQUETES A UTILIZAR
+\usepackage{graphicx} %PAQUETE QUE PERMITE LA MANIPULACIÓN DE IMAGENES
+\usepackage[top=2.5cm, bottom=2.5cm, left=3cm, right=2cm]{geometry} %PAQUETE PARA MODIFICAR LOS MÁRGENES DE LA HOJA
+\usepackage{fancyhdr} %PAQUETE PARA ENCABEZADOS O PIES DE PÁGINA
+\usepackage{apacite} %PAQUETE QUE OFRECE EL SOPORTE PARA CITAS APA
+\usepackage{enumitem} %PAQUETE PARA LA CONFIGURACIÓN DE LISTAS
+\usepackage{listings} %PAQUETE PARA MODIFICAR EL COMPORTAMIENTO DE LOS LISTADOS
+\usepackage{./config/docstyle} %PAQUETE CUSTOM PARA LA INCRUSTACIÓN DE DATOS PERSONALES
+
+%AQUÍ COMIENZA EL DOCUMENTO
+\begin{document}
+    \input{config/conf.tex}
+    \input{lib/portada/portada.tex}
+\end{document}
