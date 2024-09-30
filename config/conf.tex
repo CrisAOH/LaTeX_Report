@@ -10,9 +10,28 @@
 \setlist[enumerate]{noitemsep, topsep=3mm}
 
 %Espacios entre autores en "Bibliografía"
-\let\OLDthebibliography\thebibliography
+\let\OLDthebibliography\thebibliography{}
 \renewcommand\thebibliography[1]{
     \OLDthebibliography{#1}
     \setlength{\parskip}{3mm}
     \setlength{\itemsep}{3mm plus 0.3ex}
 }
+
+%Cambiar el interlineado del texto
+\setstretch{1.5}
+
+%Cambiar el título del índice
+\renewcommand{\contentsname}{Índice}
+
+%Añadir "título" arriba de las páginas
+\addtocontents{toc}{~\hfill\textbf{Pág.}\par}
+
+%Cambiar estilo de los títulos de los capítulos, secciones, subsecciones, párrafos, etc.
+\titleformat{\chapter}[hang]{\normalfont\LARGE\bfseries}{\thechapter.}{10pt}{\LARGE\bfseries}
+\titleformat*{\section}{\Large\bfseries}
+\titleformat*{\subsection}{\large\bfseries}
+\titleformat*{\subsubsection}{\normalsize\bfseries}
+% \titleformat{\paragraph}{\normalsize\bfseries}
+
+%Cambiar el espacio que hay entre el título del capítulo y eñ margen
+\titlespacing*{\chapter}{0pt}{-40pt}{0pt}

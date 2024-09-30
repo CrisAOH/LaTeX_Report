@@ -1,15 +1,15 @@
-\ProvidesPackage{./docstyle}
+\ProvidesPackage{docstyle}
 
 \newcommand\nombreUniversidad{Tecnológico Nacional de México en Celaya}
-\newcommand\nombreProyecto{(Nombre del proyecto)}
-\newcommand\fechaInicioResidencia{(Fecha de incio)}
-\newcommand\fechaFinResidencia{(Fecha de fin)}
+\newcommand\nombreProyecto{Mezfer Insider: Renovación digital}
+\newcommand\fechaInicioResidencia{13 de julio de 2024}
+\newcommand\fechaFinResidencia{13 de diciembre de 2024}
 \newcommand\nombreEmpresa{IBT Innova Business Technology}
 \newcommand\nombreAutor{Cristhian Alberto Ortega Hernández}
 \newcommand\numeroControl{20030191}
 \newcommand\especialidad{Ingeniería en Sistemas Computacionales}
 \newcommand\nombreAsesorExterno{Jorge Octavio Luna Medrano}
-\newcommand\nombreAsesorInterno{Claudio Mayela Alcaraz Avendaño}
+\newcommand\nombreAsesorInterno{Claudia Mayela Alcaraz Avendaño}
 \newcommand\fechaPresentacion{Celaya Guanajuato, a 13 de enero de 2025}
 
 %Configuraciones necesarias
@@ -17,10 +17,18 @@
 \setlength\bibitemsep{3\itemsep}
 \setlength{\parindent}{0cm}
 
-\pagestyle{fancy}
-\fancyhf{}
-\lhead{
-    \scriptsize\textbf{\nombreProyecto}\\
-    \nombreAutor
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[R]{\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
 }
-\cfoot{\thepage}
+% \pagestyle{fancy}
+% \fancyhf{}
+% \fancyfoot[L]{\thepage}
+% \fancyhf{}
+% \lhead{
+%     \scriptsize\textbf{\nombreProyecto}\\
+%     \nombreAutor
+% }
+% \rfoot{\thepage}
