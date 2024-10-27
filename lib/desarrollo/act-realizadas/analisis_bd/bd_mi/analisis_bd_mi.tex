@@ -1,0 +1,8 @@
+\subsection{Creación de la base de datos de Mezfer Insider}
+Para Mezfer Insider se decidió crear una nueva base de datos en la que se aplicarían los cambios que se identificaron en la base de datos anterior. Estos cambios no se realizaron en la antigua base de datos porque no se quería afectar el funcionamiento de las aplicaciones, ya que estás debían seguir disponibles para los usuarios en lo que se termina el desarrollo de Mezfer Insider; realizar estos cambios implicaría también actualizar el código de las aplicaciones para que siguieran funcionando correctamente, y esto quitaría tiempo de desarrollo para el nuevo proyecto.
+
+Esta nueva base de datos también fue desarrollada como una base de datos relacional utilizando PostgreSQL, y está almacenada en la nube gracias al servicio RDS de Amazon Web Services.
+
+Además de los cambios, una nueva funcionalidad que se quiso añadir a la base de datos de Mezfer Insider fueron las bitácoras. El propósito de las bitácoras es permitir llevar un registro sobre qué usuarios han realizados cambios en la información de ciertas tablas, de esta manera se podrá rastrear más fácilmente a cualquier usuario que haya realizado una modificación indebida y se podrá recuperar la información que haya sido cambiada.
+
+Hasta el momento no se ha utilizado esta nueva base de datos pues no se ha iniciado el proceso de migración, pero próximamente será la única en utilizarse.
