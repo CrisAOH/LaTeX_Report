@@ -1,0 +1,34 @@
+\subsection{Inicialización del proyecto de Frontend}
+Como se mencionó anteriormente, para el Frontend se utilizó una plantilla llamada DashTail, la cual proporciona un conjunto de páginas ya diseñadas. Esta plantilla es un proyecto de Next.js, por lo que, en este caso, no fue necesario crear el proyecto desde cero.
+
+Para poder ejecutar el proyecto es necesario instalar todas las dependencias necesarias con el gestor de dependencias que se prefiera. En este proyecto se decidió utilizar el gestor de dependencias Yarn.
+
+Cuando se instala Node.js, el gestor de dependencias predeterminado es NPM (Node Package Manager), por lo que si se desea utilizar Yarn será necesario realizar una instalación extra. En la página oficial de Yarn se explica de una manera breve y sencilla como se realizar la instalación; utilizando NPM se ejecuta el siguiente comando:
+    \begin{center}
+        \textbf{
+            \emph{
+                npm install --global yarn
+                }
+            }
+    \end{center}
+De esta manera Yarn quedará instalado en todo el sistema y podrá ser utilizado en cualquier proyecto.
+
+Ahora, lo único que queda es instalar las dependencias del proyecto. Para esto, se ejecuta el comando: 
+    \begin{center}
+        \textbf{
+            \emph{
+                yarn install
+                }
+            }
+    \end{center}
+Y con esto comenzará la instalación.
+
+Una vez instaladas todas las dependencias, se ejecuta el comando:
+    \begin{center}
+        \textbf{
+            \emph{
+                yarn dev
+                }
+            }
+    \end{center}
+Esto iniciará el entorno de desarrollo del proyecto, que será ejecutado en un servidor local y para acceder a él simplemente en un navegador escribimos la URL \emph{http://localhost:3000} (El puerto 3000 es el puerto predeterminado en el cual se ejecuta el servidor local de Next.js, sin embargo, este puede ser cambiado al puerto que se desee).

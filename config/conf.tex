@@ -6,8 +6,8 @@
 \setlength{\parskip}{5mm}
 
 %Configurando el espaciado entre "itemize/enumerate items"
-\setlist[itemize]{noitemsep, topsep=3mm}
-\setlist[enumerate]{noitemsep, topsep=3mm}
+\setlist[itemize]{noitemsep, topsep=0mm}
+\setlist[enumerate]{noitemsep, topsep=0mm}
 
 %Espacios entre autores en "Bibliografía"
 \let\OLDthebibliography\thebibliography{}
@@ -22,6 +22,10 @@
 
 %Numeración en el índice
 \setcounter{tocdepth}{3}
+
+%Numeración y texto de las figuras
+\renewcommand{\figurename}{Figura}
+\renewcommand{\thefigure}{\arabic{figure}}
 
 %Cambiar el interlineado del texto
 \setstretch{1.5}

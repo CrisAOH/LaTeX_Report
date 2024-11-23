@@ -1,0 +1,40 @@
+\subsection{Despliegue del proyecto de Backend en servidor de producción}
+La estrategia que se siguió para desplegar la API en el servidor de producción fue utilizar repositorios de GitHub, ya que estos es posible clonarlos en cualquier parte y esto facilita y simplifica el proceso de despliegue.
+
+Lo primero que se debe hacer es crear un repositorio de GitHub. Esto se puede hacer desde la línea de comandos o desde la página web, pero para más facilidad se recomienda realizarlo desde la página web. Una vez creado el repositorio, se proporcionan una serie de comandos que se deben ejecutar para inicializar el repositorio local y subir el código ya existente al repositorio remoto.
+
+Una vez que el código se encuentre en el repositorio remoto sigue clonarlo en el servidor de producción. Realizar la clonación de un repositorio es muy sencillo, sólo es necesario ingresar al servidor y ubicarse en el directorio donde va a estar el proyecto, luego se ejecuta el siguiente comando: 
+    \begin{center}
+        \textbf{
+            \emph{
+                git clone ruta-del-repositorio-remoto
+                }
+            }
+    \end{center}
+Y con esto todas las carpetas y archivos del proyecto estarán en el servidor de producción. Después, se deben instalar todas las dependencias mediante el siguiente comando:
+    \begin{center}
+        \textbf{
+            \emph{
+                npm install 
+                }
+            }
+    \end{center}
+El último paso es hacer que se ejecute automáticamente la aplicación, y esto se logra gracias a PM2. Los comandos que se utilizan son prácticamente los mismos, sólo hay una ligera variación en el primer comando que se utiliza, puesto que ejectuar una aplicación de Express es diferente a ejecutar una aplicación de Next.js. El comando que se debe usar para esta aplicación es el siguiente:
+    \begin{center}
+        \textbf{
+            \emph{
+                pm2 start ``node index.js'' --name nombre-app
+                }
+            }
+    \end{center}
+Los siguientes comandos a ejecutar son exactamente los mismos que se explicaron en el despliegue de la aplicación del Frontend.
+
+Para actualizar la aplicación, simplemente se suben los cambios realizados en el código al repositorio remoto y se descargan en el servidor de producción mediante el siguiente comando:
+    \begin{center}
+        \textbf{
+            \emph{
+                git pull
+                }
+            }
+    \end{center}
+Una vez descargados los cambios, se reinicia el proceso de PM2 y la aplicación ya estará en su última versión.

@@ -1,0 +1,86 @@
+\subsection{Despliegue del proyecto de Frontend en servidor de producción}
+Para desplegar el proyecto en el servidor de producción se deben seguir casi los mismos pasos que con la inicialización, pero hay algunos pasos extra que deben realizarse.
+
+Principalmente, deben de estar instalados Node.js y Yarn para poder instalar las dependencias y ejecutar el proyecto. El proceso de instalación es el mismo, no hay ninguna diferencia.
+
+Otra herramienta importante que se debe instalar es PM2 (Process Manager 2), un gestor de procesos que permite mantener proyectos de Node.js en ejecución, es decir, si el servidor llegase a ser detenido o reiniciado, PM2 se encargará de iniciar el proyecto automáticamente sin la necesidad de que un administrador ingrese al servidor a iniciar todos los proyectos nuevamente. Para instalar PM2, se ejecuta el siguiente comando:
+    \begin{center}
+        \textbf{
+            \emph{
+                yarn global add pm2
+                }
+            }
+    \end{center}
+El siguiente paso es compilar el proyecto para que Next.js realice todas las optimizaciones necesarias y así quede preparado para producción. Para compilar el proyecto, desde la carpeta principal se ejecuta el siguiente comando:
+    \begin{center}
+        \textbf{
+            \emph{
+                yarn build
+                }
+            }
+    \end{center}
+De esta manera Next.js comenzará a compilar y optimizar todas las páginas que tenga la aplicación. Al finalizar el proceso, se creará una carpeta llamada ``.next'', la cual contiene el proyecto optimizado y listo para producción.
+
+Ahora, hay 5 archivos importantes que deben ser enviados al servidor para poder ejecutar correctamente el proyecto:
+    \begin{itemize}
+        \item .next: Esta es la carpeta que contiene todo el proyecto optimizado.
+        \item .env: Este es el archivo donde se almacenan las variables de entorno.
+        \item package.json: Este es el archivo que contiene todas las dependencias que han sido instaladas en el proyecto.
+        \item yarn.lock: Un archivo generado por Yarn que lleva un registro de las versiones exactas de las dependencias que requiere un proyecto para que funcione adecuadamente.
+        \item next.config.js: Este es el archivo que contiene la configuración del servidor de Next.js.
+    \end{itemize}
+Para enviar estos archivos al servidor, se ejecuta el siguiente comando:
+    \begin{center}
+        \textbf{
+            \emph{
+                scp -i --/ruta/llave/PEM -r archivos usuario@ip\_{}publica\_{}servidor:--/carpeta/destino
+                }
+            }
+    \end{center}
+Una vez estén todos los archivos en el servidor de producción, se instalan las dependencias como se explicó anteriormente, y finalmente, se ejecuta el proyecto con PM2 para que este se encargue de gestionarlo. Para ejecutar el proyecto con PM2, se utiliza el siguiente comando:
+    \begin{center}
+        \textbf{
+            \emph{
+                pm2 start ``yarn start'' --name nombre-app
+                }
+            }
+    \end{center}
+Posteriormente, se guarda la configuración con el siguiente comando:
+    \begin{center}
+        \textbf{
+            \emph{
+                pm2 save
+                }
+            }
+    \end{center}
+Para hacer que la aplicación se ejecute automáticamente cuando se reinicie el servidor, se utiliza el siguiente comando:
+    \begin{center}
+        \textbf{
+            \emph{
+                pm2 startup
+                }
+            }
+    \end{center}
+Al ejectuar este comando PM2 proporcionará otro comando que solamente debe ser copiado, pegado y ejecutado, y se habrá terminado de configurar. Ahora, con cada reinicio del servidor, la aplicación se ejecutará automáticamente.
+
+Cuando se quieran subir cambios al proyectos, simplemente se repiten los pasos:
+    \begin{itemize}
+        \item Compilar el proyecto.
+        \item Subir los archivos que hayan sufrido cambios al servidor.
+        \item Reiniciar el proceso de PM2.
+    \end{itemize}
+Para reiniciar el proceso de PM2, se ejecuta uno de los siguientes comandos:
+    \begin{center}
+        \textbf{
+            \emph{
+                pm2 reload nombre-app
+                }
+            }
+
+        \textbf{
+            \emph{
+                pm2 restart nombre-app
+            }
+        }
+    \end{center}
+Y con esto quedarán aplicados los cambios que se hayan subido.
