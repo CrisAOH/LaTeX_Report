@@ -1,1 +1,8 @@
 \section{Integración de Mezfer Insider con Control Manager Siso}
+Control Manager Siso (CMS) es el sistema de inicio de sesión de Siso ERP, un sistema ERP que permite realizar la gestión de distintos aspectos de una empresa. Cuando un cliente compra una licencia de Siso ERP, se le otorgan un correo y contraseña que podrán usar para iniciar sesión mediante CMS y acceder a sus empresas.
+
+Quienes son administradores de CMS tienen acceso al panel de administración, donde se les permite gestionar a los usuarios y empresas del sistema Siso ERP.
+
+Para poder crear empresas (que son tratadas como aplicaciones web), CMS realiza peticiones a diferentes endpoints de la API de la nueva empresa y, dependiendo de la respuesta que se reciba, se registrará correctamente a la base de datos o no. Lo mismo aplica para cuando se quiere asignar un usuario a una empresa y cuando se quiere ingresar a la empresa.
+    \input{lib/desarrollo/act-realizadas/integracion_cms/endpoints/endpoints.tex}
+    \input{lib/desarrollo/act-realizadas/integracion_cms/integracion-frontend/integracion-frontend.tex}
