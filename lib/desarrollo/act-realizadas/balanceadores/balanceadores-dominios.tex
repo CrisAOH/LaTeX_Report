@@ -1,1 +1,18 @@
 \section{Creación de balanceadores de carga y asignación de los dominios}
+El uso de un balanceador de carga es necesario para poder distribuir equitativamente el flujo de tráfico que se piensa gestionar. AWS ofrece un servicio para implementar los balanceadores de carga, y para este proyecto se implementó uno en el servidor donde se encuentra alojado (una instancia de EC2). Existen diferentes opciones disponibles para un balanceador de carga, pero el que se seleccionó fue el Balanceador de Carga de Aplicaciones (ALB).
+
+El ALB es ideal para aplicaciones web, soporta HTTP/HTTPS y enruta solicitudes basadas en reglas de nivel de aplicación. 
+
+La configuración más básica de un ALB consiste en asignarle un nombre, el esquema bajo el cual va a trabajar (que puede ser expuesto a internet o interno, y en este caso se usará el expuresto a internet.) y el tipo de dirección IP (que puede ser IPv4, Dualstack o Dualstack sin IPv4 pública, y en este caso se usará IPv4).
+
+Lo siguiente que se tiene que configurar es el mapeo de la red, donde lo más importante es seleccionar las zonas de disponibilidad del balanceador ya que, si una zona llegara a fallar, el balanceador se encargará de dirigir el tráfico a una zona que esté disponible.
+
+El siguiente aspecto a configurar es el agente de escucha y el direccionamiento. En el agente de escucha se asigna el puerto por el cual se van a estar escuchando las peticiones de la aplicación. Como se mencionó anteriormente, en el servidor la aplicación está siendo ejecutada mediante PM2, lo que hace que las peticiones que se realicen sean mediante el protocolo HTTP y por eso esté escuchando en el puerto 80; se debe limitar a que servidores se les aceptarán las peticiones del puerto 80, y es por eso que se crea un grupo de destino, donde se configuran las instancias a las cuales sí se les recibirán las peticiones del puero 80. En este grupo de destino sólo estará involucrada la instancia en la cual se encuentra montada la aplicación Mezfer Insider.
+
+Posteriormente, se configura el grupo de seguridad del balanceador, donde se definen las reglas de entrada. Las reglas de entrada que se configuraron fueron para los puertos 80 (HTTP) y 443 (HTTPS) y todas las direcciones IPv4, esto para que pueda ser accesible desde todos los navegadores, sin restricción de acceso. Estos dos puertos se seleccionaron debido a que el balanceador de carga actúa como un intermediario que distribuye el tráfico a los servidores Backend. 
+
+Aunque los puertos están abiertos, la seguridad se puede reforzar con la implementación de cifrado con SSL/TLS para HTTPS, y esto se va a lograr utilizando un dominio (el dominio fue implementado por el dueño de la cuenta de AWS y sólo se proporcionó la dirección). Gracias a este cifrado se crea una capa de seguridad adicional conocido como Firewall de Aplicaciones Web (WAF) que ayuda a proteger contra ataques y se asegura que los servidores sólo acepten tráfico proveniente del balanecador.
+
+Se ha creado el dominio, pero todavía hace falta asignarlo al balanceador para que ya cuente con la certificación SSL. En los agentes de escucha ya estaba creado uno para el puerto 443, a este se le va a añadir el grupo de destino al cual se le van a redireccionar las peticiones a este puerto y se le va a asignar el dominio que fue proporcionado (\emph{https://insider.mezfer.com}).
+
+Con estos pasos realizados, el balanceador de carga queda correctamente configurado. Al acceder al DNS del balanaceador de carga, este redirige a Mezfer Insider e ingresar directamente el dominio en el navegador permite el acceso a la aplicación web.
