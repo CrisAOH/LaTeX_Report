@@ -1,0 +1,8 @@
+\subsubsection{Endpoint para obtener la información del usuario}
+Este endpoint permitirá obtener la información de un cliente de la tabla correspondiente en la base de datos.
+
+Como en endpoints anteriores, lo primero que se tiene que hacer es crear el query que permita obtener la información. Es importante enviarle como parámetro el ID del cliente para que sólo se obtenga la información del cliente que se requiere y no se obtengan todos los registros existentes.
+
+La obtención del ID se realiza con la ayuda del Frontend. Cada que se realice la petición HTTP a este endpoint se envían las credenciales, es decir, la cookie de sesión y esta será procesada por la API. La cookie contiene un token JWT con información del usuario, y entre esta información se encuentra el ID por lo que se debe extraer el token de la cookie, decodificarlo y obtener el ID para pasarlo al query.
+
+Una vez ejecutado el query, el endpoint retornará un JSON con la información del cliente.

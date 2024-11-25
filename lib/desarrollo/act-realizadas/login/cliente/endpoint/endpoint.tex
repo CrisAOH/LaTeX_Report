@@ -1,0 +1,8 @@
+\subsubsection{Endpoint de inicio de sesión}
+El primer paso para la creación del endpoint del Backend es construir la query que permitirá buscar al cliente en la base de datos. Esta query es una busqueda en la tabla de clientes que recibe como parámetro ya sea el correo o el teléfono, y una vez encontrado, retorna toda la información.
+
+Con la información del cliente recibida, se recupera la contraseña almacenada en la base de datos y se compara con la que se recibió desde el Frontend. Para realizar la comparación, es necesario desencriptar la contraseña de la base de datos, de esta manera se podrá saber si lo que ingresó el cliente es lo mismo que está en la base de datos.
+
+Si las credenciales del cliente son correctas, se crea un token JWT con información útil del cliente y se almacena en una cookie de sesión.
+
+Con este proceso realizado, el cliente podrá ingresar a Mezfer Insider.
