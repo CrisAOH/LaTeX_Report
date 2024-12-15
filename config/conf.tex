@@ -23,9 +23,22 @@
 %Numeración en el índice
 \setcounter{tocdepth}{3}
 
+%Elimación del salto de página del comando de capítulos
+\makeatletter
+\renewcommand{\chapter}{
+    \vspace{60pt}
+    \if@openright\cleardoublepage\else\par\fi % Esto causa el salto automático; lo eliminamos.
+    \global\@topnum\z@
+    \@afterindentfalse
+    \secdef\@chapter\@schapter
+}
+\makeatother
+
 %Numeración y texto de las figuras
 \renewcommand{\figurename}{Figura}
 \renewcommand{\thefigure}{\arabic{figure}}
+\captionsetup{font=footnotesize}
+
 
 %Cambiar el interlineado del texto
 \setstretch{1.5}
@@ -44,6 +57,7 @@
 % \titleformat{\paragraph}{\normalsize\bfseries}
 
 %Cambiar el espacio que hay entre el título del capítulo y eñ margen
+% \titlespacing*{\chapter}{0pt}{-40pt}{0pt}
 \titlespacing*{\chapter}{0pt}{-40pt}{0pt}
 \titlespacing*{\subsection}{0pt}{15pt}{0pt}
 \titlespacing*{\subsubsection}{0pt}{15pt}{0pt}
