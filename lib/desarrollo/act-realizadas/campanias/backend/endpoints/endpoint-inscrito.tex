@@ -1,0 +1,6 @@
+\subsubsection{Endpoint para obtener las campañas en las que se encuentra inscrito el usuario}
+Para obtener la información que se requiere, se hará uso de la tabla que es producto de una relación muchos a muchos entre las tablas que contienen la información de los usuarios y de las campañas. Esta tabla intermedia permite relacionar un usuario con muchas campañas, permitiendo así que pueda estar inscrito en varias camapañas.
+
+Se debe construir el query que permita obtener la información de la tabla correspondiente. Este query requiere del ID del usuario, para que sólo devuelva la información del usuario que se desea y no toda la información que contenga la tabla, además, también se debe verificar que el usuario siga inscrito en esta campaña; si no se valida esto, se obtendrán todas las campañas en las que ha estado el usuario, sin importar si sigue inscrito o no.
+
+Con el query construido, al realizar la petición HTTP a este endpoint, se obtendrá un JSON con las campañas en las que está inscrito el usuario.
