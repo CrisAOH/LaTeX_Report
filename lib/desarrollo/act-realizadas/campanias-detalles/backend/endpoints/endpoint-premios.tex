@@ -1,0 +1,10 @@
+\subsubsection{Endpoint para obtener los premios de las campañas}
+Cada una de las campañas ofrece premios diferentes para los usuarios que deseen canjear sus puntos.
+
+La tabla principal para comenzar a desarrollar este query es uns tabla intermedia producto de una relación muchos a muchos en las tablas de las campañas y los premios. En esta tabla intermedia se guardan los premios y a qué campañas pertenecen, así como la cantidad de puntos que se requieren para poder ganar esos premios.
+
+Esta tabla intermedia se debe unir con las tablas de campañas y premios para poder obtener correctamente los nombres.
+
+Este query también debe recibir el ID de la campaña para sólo obtener los premios específicos de esa campaña.
+
+Cuando el query esté construido, se podrán realizar peticiones HTTP a este endpoint para recibir la información solicitada.

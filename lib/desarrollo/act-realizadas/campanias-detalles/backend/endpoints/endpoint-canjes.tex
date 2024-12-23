@@ -1,0 +1,9 @@
+\subsubsection{Endpoint para obtener los canjes del usuario}
+Los puntos que cada uno de los usuarios acumule podrán ser canjeados por los premios que pueda ofrecer la campaña.  
+
+Gracias a este endpoint, los usuarios pueden obtener un historial de los canjes que han realizado.
+
+Para poder construir este query se requieren de 5 tablas. La tabla principal es aquella donde se almacenan los canjes, de aquí se van a obtener la cantidad de premios que se canjearon y la fecha en la que se canjearon; esta tabla se va a unir con las tablas de premios y estatus para poder obtener el premio que ha sido canjeado y el estatus del canje. 
+Las últimas dos tablas son las de campañas y usuarios, y al igual que el endpoint anterior, estas sólo son utilizadas para limitar la información que se va a obtener.
+
+Con esto queda terminado el query y se pueden realizar las peticiones HTTP para obtener la información.

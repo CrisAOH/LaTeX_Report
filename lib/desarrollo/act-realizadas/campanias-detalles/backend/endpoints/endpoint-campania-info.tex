@@ -1,0 +1,8 @@
+\subsubsection{Endpoint para obtener la información de la campaña}
+La información de la campaña está distribuida en diferentes tablas de la base de datos. 
+
+Principalmente, se debe utilizar la tabla de campañas pues aquí está almacenada información como el nombre, imágenes, fechas para obtener puntos y canjearlos, entre otras cosas. Posteriormente, esta tabla se debe unir con la tabla de descripciones para recuperar el número de la descripción y su contenido, de esta manera todos los párrafos que conforman la descripción podrá ser ordenados adecuadamente. Finalmente, se realiza otra unión con otra tabla donde se almacenan los tipos de descripciones para identificar el tipo de descripción que es cada párrafo y así poder asignarle un color.
+
+Este query requiere del ID de la campaña para evitar que se obtenga la información de todas las campañas, sólo se debe obtener la información de la campaña de la que se quieran ver los detalles.
+
+Ya que el query esté construido, se podrá realizar la petición HTTP a este endpoint y se recibirá como respuesta un JSON con la información solicitada.

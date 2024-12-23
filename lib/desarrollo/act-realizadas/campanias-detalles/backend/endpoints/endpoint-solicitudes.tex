@@ -1,0 +1,8 @@
+\subsubsection{Endpoint para obtener las solicitudes de puntos de un usuario}
+Para poder obtener los puntos de la compra de productos, los usuarios realizan una solicitud de puntos la cual será revisada y aprobada o rechazada.
+
+Mediante este endpoint, los usuarios pueden obtener un historial de todas las solicitudes que han realizado.
+
+Para poder crear este query se utilizan cuatro tablas distintas. Principalmente se utiliza la tabla donde se almacenan todas las solicitudes para poder obtener la cantidad de puntos solicitados, la evidencia y la fecha; posteriormente, se realiza la unión con la tabla de estatus para poder obtener el nombre del estatus. Las otras dos tablas que se requieren son las de campañas y usuarios, de estas no se obtiene ninguna información, sólo son utilizadas para limitar, mediante los IDs del usuario y la campaña, la información que se va a obtener.
+
+Ya que el query esté construido, se podrá realizar la petición HTTP.

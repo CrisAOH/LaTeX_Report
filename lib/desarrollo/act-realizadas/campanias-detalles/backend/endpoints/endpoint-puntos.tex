@@ -1,0 +1,8 @@
+\subsubsection{Endpoint para obtener los puntos del usuario}
+Este endpoint permite obtener la cantidad de puntos que tiene cada usuario.
+
+Para crear este query se requieren de tres tablas. La tabla principal es una tabla intermedia porducto de la relación muchos a muchos entre las tablas de usuarios y campañas. En esta tabla se almacena el usuario y las campañas a las que está inscrito, así como la cantidad de puntos que tiene en cada campaña.
+
+Para poder limitar los resultados de este query se deben cumplir tres condiciones: que el ID que se reciba del usuario exista, el ID que se reciba de la camapaña exista y que la fecha de vencimiento de los puntos no haya llegado.
+
+Es así como, al realizar la petición HTTP a este endpoint, el usuario recibirá sus puntos que sigan vigentes.

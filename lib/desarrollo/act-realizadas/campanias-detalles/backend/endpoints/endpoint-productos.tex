@@ -1,0 +1,10 @@
+\subsubsection{Endpoint para obtener los productos participantes de la campaña}
+Cada campaña tiene ciertos productos que, al comprarlos, permiten ganar un cantidad de puntos.
+
+Al igual que el endpoint anterior, la tabla principal es una tabla intermedia producto de la relación muchos a muchos de las tablas de campañas y productos. En esta tabla se guardan los productos y en qué campañas participan, así como la cantidad de puntos que un cliente puede recibir con su compra.
+
+Esta tabla se debe unir con las tablas de camapañas y productos para poder obtener correctammente los nombres.
+
+Es importante que el query reciba el ID de la campaña para sólo obtener los productos de una determinada campaña.
+
+Con el query construido, se puede realizar una petición HTTP para obtener la información correspondiente.
