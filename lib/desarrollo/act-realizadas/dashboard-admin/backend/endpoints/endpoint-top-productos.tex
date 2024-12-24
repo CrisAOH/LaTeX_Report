@@ -1,0 +1,6 @@
+\subsubsection{Endpoint para obtener el Top 10 de productos}
+Este endpoint permite obtener un Top de los productos que generan mayores ingresos para Mezfer.
+
+Mediante la tabla de ventas se obtiene la cantidad e importe de cada producto y, mediante la función Rank() de PostgreSQL, se realiza un ordenamiento para obtener el Top con base en la suma de los importes de cada venta de cada producto. Esta tabla se une con la tabla de productos para poder obtener el nombre de cada uno de los productos que entran en el top.
+
+Con el query finalizado, es posible comenzar a realizar las peticiones HTTP.\@

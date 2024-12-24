@@ -1,0 +1,6 @@
+\subsubsection{Endpoint para obtener el Top 10 de distribuidores}
+Con este endpoint se obtiene un Top de los mejores distribuidores de productos que tiene Mezfer, es decir, los que venden mayor cantidad.
+
+De la misma manera que con el query del top anterior, se utiliza la tabla de ventas para poder obtener información como el importe y la cantidad de productos que vende cada distribuidor. Con la ayuda de la función Rank() se realiza un ordenamiento para obtener el top con base en la suma de los importes de cada venta de cada producto. Por último, esta tabla se une con la tabla de distribuidores para poder obtener el nombre de cada distribuidor.
+
+Con esto queda finalizado el query y, a su vez, el endpoint.

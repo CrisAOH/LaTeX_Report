@@ -1,0 +1,8 @@
+\subsubsection{Endpoint para obtener una comparativa de ventas entre el año actual y el año anterior}
+Mediante este endpoint se obtiene la información de cuanto vendió la empresa en el año actual y cuanto vendió en el año anterior.
+
+Nuevamente la tabla de ventas es el punto importante, pues es de aquí donde se extraen los datos de la venta como el importe y cantidad. Cuando se realiza la suma para obtener el ingreso total tanto del año anterior como del actual, se aplica una condición para limitar los datos que van a participar en la comparativa; esta condición indica que si el año de la venta es igual al actual o al anterior, se toma el valor del importe, si no lo es, se coloca como valor un 0.
+
+Por último, para limitar los resultados del query, se añade una última condición para indicar que solo participan las ventas del año anterior y el actual.
+
+De esta manera el query queda concluido y listo para recibir peticiones.
