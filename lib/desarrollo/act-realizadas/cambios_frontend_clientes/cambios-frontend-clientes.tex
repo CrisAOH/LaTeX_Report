@@ -1,1 +1,7 @@
 \section{Cambios generales en el Frontend de los clientes}
+Los cambios que se realizaron en el Frontend de los clientes son relacionados al código y a algunos componentes.
+
+En cuanto al código, se cambió la manera en las que se estaban realizando las peticiones HTTP. Las peticiones se estaban realizando de manera repetida en diferentes partes del código, por lo que se decidió realizarlas desde un mismo lugar y la información que se obtuviera se pasaría a los diferentes componentes que la necesitaran. Además, como la misma estructura de código se repetía, se decidió crear un hook para realizar las peticiones; ahora en vez de escribir el mismo código múltiples veces, simplemente se manda a llamar un método que solicita una URL y el tipo de petición.
+
+Otro cambio importante que se realizó fue en los componentes. Algunos componentes como tablas, Dialogs y Cards se estaban creando por cada sección que los ocupara y esto sólo hacía que el tamaño del proyecto estuviera aumentando, es por eso que se decidió crear componentes reutilizables, esto permitió que en un solo archivo estuviera el códgio general de cada componente y sólo se les pasaba la información que se quisiera mostrar en ellos.
+
