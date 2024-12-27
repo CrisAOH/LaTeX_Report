@@ -1,0 +1,6 @@
+\subsubsection{Endpoint para obtener la información de los administradores}
+En las primeras actividades que se describieron en este reporte, específicamente la de la integración de Mezfer Insider con CMS (Sección 6.6), se mencionó un endpoint en el que se recuperaba la información de los usuarios que ingresaban mediante CMS, este endpoint se vuelve a utilizar aquí pero sufre una ligera modificación.
+
+Anteriormente, la consulta que se realizaba para obtener la información de los administradores sólo esperaba un correo electrónico para filtrar la información y devolver únicamente la de un usuario. Desde el Frontend de Mezfer Insider se envían las cookies del usuario que contienen cierta información que pudiera servir para el Backend, pero estas cookies no contienen el correo del usuario, por lo que la consulta debió ser modificada para también poder aceptar un ID y poder filtrar la información con base en este; ahora, de manera general, la consulta recibe un identificador que pudiera ser un correo o un ID, y para poder hacer la distinción se deber de cumplir dos condiciones: que el identificador sea un string y que contenga un ``@''. Si ambas condiciones son ciertas, se trata de un correo electrónico; si no, se trata de un ID.\@
+
+De esta manera se creó un endpoint que puede ser utilizado para diferentes situaciones.

@@ -1,0 +1,12 @@
+\subsection{Modificaciones a la base de datos}
+Para esta nueva sección se crearon 4 tablas en la base de datos.
+
+Una tabla es para almacenar los estatus que puede tener una producción. Sólo tiene dos columnas, una para el ID y otra para el nombre del estatus.
+
+Otra tabla es para almacenar los estatus que pueden tener las piezas que se creen en la producción. Al igual que la tabla anterior, esta sólo tiene dos columnas, una para el ID y otra para el nombre del estatus.
+
+La tabla más importante de esta sección es la de producciones. En esta tabla se guardan los detalles importantes de la producción, como su ID, su folio, el lote, cuántas piezas se van a producir, el producto que se va a producir, la fecha de creación, quien creó la producción, quien la actualizó y el estatus.
+
+La última tabla que se creó para esta sección es donde se almacena la información de las piezas de cada producción. Aquí se guardarán todas las piezas que se hayan indicado en cada producción junto con un folio, el estatus, quien actualizó el estatus de la pieza y el código QR.\@
+
+Hay una relación uno a muchos entre la tabla del estatus de la producción y la de producciones, una relación uno a muchos entre la tabla de producciones y la de productos, una relación uno a muchos entre la tabla de producciones y la de información de las piezas, y una relación uno a muchos entre la tabla de información de las piezas y la de estatus de las piezas.

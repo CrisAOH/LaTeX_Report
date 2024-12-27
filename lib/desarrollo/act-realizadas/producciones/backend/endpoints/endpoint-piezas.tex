@@ -1,0 +1,6 @@
+\subsubsection{Endpoint para obtener las piezas de las producciones}
+Este endpoint permite obtener todas las piezas que se crearon para una producción.
+
+Para esta consulta se utilizan 3 tablas: la que guarda la información de las piezas de las producciones, la de producciones y la de los estatus de las piezas; con estas tablas se puede obtener la información necesaria para construir un JSON que permita ordenar la información con el formaato llave/valor, la llave sería el ID de la producciones y el valor serían todas las piezas de esa producción.
+
+Esta consulta también requiere un filtro para sólo obtener la información de ciertas producciones, pues hay unas que podrían no tener piezas (Esto se explicará más adelante). Este filtro se realiza mediante un arreglo de IDs, así la consulta recorre este arreglo y obtiene la información de los IDs que se encuentren ahí.
