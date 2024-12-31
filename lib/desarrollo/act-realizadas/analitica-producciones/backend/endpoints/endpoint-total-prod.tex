@@ -1,0 +1,6 @@
+\subsubsection{Endpoint para obtener el total de producciones}
+El query que se construye para este endpoint requiere de las tablas de producciones y de los estatus de las producciones. 
+
+La tabla de producciones es la que proporciona las columnas de las cuales se va a extraer información, en este caso, el total de producciones que se han realizado, el total de producciones realizadas en los últimos 30 días y el total de producciones realizadas en los últimos 60 días. Estas dos últimas columnas permitirán realizar una comparativa para saber si ha habido un aumento o decremento en la creación de producciones.
+
+Para límitar la información que se tiene, sólo se toman en cuenta las producciones que tienen el estatus de ``Aceptado'', cualquier otra no será incluida en el query.
