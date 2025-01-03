@@ -5,7 +5,7 @@
 \usepackage{graphicx} %PAQUETE QUE PERMITE LA MANIPULACIÓN DE IMAGENES
 \usepackage[top=2.5cm, bottom=2.5cm, left=3cm, right=3cm]{geometry} %PAQUETE PARA MODIFICAR LOS MÁRGENES DE LA HOJA
 \usepackage{fancyhdr} %PAQUETE PARA ENCABEZADOS O PIES DE PÁGINA
-\usepackage{apacite} %PAQUETE QUE OFRECE EL SOPORTE PARA CITAS APA
+% \usepackage{apacite} %PAQUETE QUE OFRECE EL SOPORTE PARA CITAS APA
 \usepackage{parskip} %PAQUETE PARA ESPACIADO AUTOMÁTICO ENTRE PÁRRAFOS
 \usepackage[compact]{titlesec} %Paquete para eliminar los espacios en blanco entre títulos, subtítulos, etc
 \usepackage{setspace} %PAQUETE PARA CAMBIAR EL INTERLINEADO
@@ -13,10 +13,12 @@
 %\usepackage[Lenny]{fncychap} %PAQUETE PARA CAMBIAR EL ESTILO DE TÍTULOS DE CAPÍTULOS, SECCIONES Y SUBSECCIONES
 \usepackage{enumitem} %PAQUETE PARA LA CONFIGURACIÓN DE LISTAS
 \usepackage{listings} %PAQUETE PARA MODIFICAR EL COMPORTAMIENTO DE LOS LISTADOS
-\usepackage[bookmarks=true, pdfstartview=FitH]{hyperref} %PAQUETE PARA AÑADIR VÍNCULOS A LA TABLA DE CONTENIDOS
 \usepackage{float}
 \usepackage{caption} %PAQUETE PARA CONFIGURAR LOS CAPTIONS DE LAS FIGURAS.
 \usepackage{config/docstyle} %PAQUETE CUSTOM PARA LA INCRUSTACIÓN DE DATOS PERSONALES
+\usepackage[bookmarks=true, pdfstartview=FitH]{hyperref} %PAQUETE PARA AÑADIR VÍNCULOS A LA TABLA DE CONTENIDOS
+\usepackage[style = apa, backend=biber]{biblatex}
+\addbibresource{bibliography_citedrive.bib}
 %\usepackage{showframe} %PAQUETE QUE PERMITE VISUALIZAR EL MARGEN DEL DOCUMENTO
 
 %AQUÍ COMIENZA EL DOCUMENTO
@@ -38,5 +40,6 @@
     \input{lib/desarrollo/resultados/resultados.tex}
     \input{lib/final/conclusiones/conclusiones.tex}
     \input{lib/final/competencias/competencias.tex}
-
+    \nocite{*}
+    \printbibliography[heading=bibintoc, heading=bibnumbered, title=Referencias bibliográficas y/o virtuales]
 \end{document}
